@@ -1,5 +1,23 @@
 # Runtime and generated server data
 .env
+
+# Keep /data mostly ignored; explicitly allow important config/template files below.
+data/*
+!data/config/
+!data/config/**
+!data/defaultconfigs/
+!data/defaultconfigs/**
+!data/log4j2.xml
+!data/server-icon.png
+!data/user_jvm_args.txt
+!data/server.properties.example
+!data/showdown/
+data/showdown/*
+!data/showdown/config/
+!data/showdown/config/config-example.js
+!data/showdown/config/custom-formats.js
+!data/showdown/config/formats.js
+
 data/.cache/
 data/.modrinth-manifest.json
 data/.neoforge-manifest.json
@@ -11,6 +29,16 @@ data/mods/
 data/usercache.json
 data/usernamecache.json
 data/world/
+
+# Player identity and access lists (PII / private)
+data/ops.json
+data/whitelist.json
+data/banned-players.json
+data/banned-ips.json
+
+# Generated server runtime properties (contains credentials)
+data/server.properties
+data/eula.txt
 
 # Datapacks and generated pack content are better handled by backups/build steps
 data/datapacks/
@@ -35,3 +63,7 @@ data/showdown/config/*.map
 
 # Generated profiler scratch data
 data/config/spark/tmp-client/
+
+# Generated or secret-bearing web/admin config
+data/config/resourceful-config-web.json
+data/config/cobblemonextras/config.json
